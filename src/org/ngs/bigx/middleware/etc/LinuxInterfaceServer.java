@@ -66,9 +66,10 @@ public class LinuxInterfaceServer extends Thread {
 		{
 			byte[] data = new byte[buffersize];
 			DatagramPacket packet = new DatagramPacket(data, data.length);
-
+			System.out.println("Linux Interface Server Running!");
 			try {
 				socket.receive(packet);
+				System.out.println("Packet Received!!?");
 				this.onMessageReceive(packet.getData());
 			} catch (IOException e) {
 				e.printStackTrace();
