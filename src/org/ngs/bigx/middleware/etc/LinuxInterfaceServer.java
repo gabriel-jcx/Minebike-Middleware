@@ -146,6 +146,8 @@ public class LinuxInterfaceServer extends Thread {
         		(commandarray[1].equals("DATA")) &&
         		(commandarray[2].equals("BLEHR")))
         {
+			System.out.println("[BiGX] Received a command via LOCAL DATA BLRHR Interface");
+			System.out.println("BiGXDevice is: null?"+ (this.BiGXDevice == null));
         	if(this.BiGXDevice != null)
         	{
         		int value = Integer.parseInt(commandarray[3].trim());
