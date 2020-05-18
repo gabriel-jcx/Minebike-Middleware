@@ -13,15 +13,16 @@ public class BiGXMiddlewareTranslator {
 	public BiGXMiddlewareTranslator() {}
 	
 	public synchronized double updateRawData(int key, int valueType, double value) throws Exception
-	{	
-		double translatedValue = 0;
-		double returnValue = Double.MIN_VALUE;
-		
-		// Translate!!!
-		translatedValue = translationFunction.translateRawToAbstract(key, valueType, value);
-		returnValue = translatedValue;
-		
-		return returnValue;
+	{
+		return translationFunction.translateRawToAbstract(key, valueType, value);
+//		double translatedValue = 0;
+//		double returnValue = Double.MIN_VALUE;
+//
+//		// Translate!!!
+//		translatedValue = translationFunction.translateRawToAbstract(key, valueType, value);
+//		returnValue = translatedValue;
+//
+//		return returnValue;
 	}
 	
 	public double translate(int key, double rawValue)

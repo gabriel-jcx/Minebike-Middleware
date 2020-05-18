@@ -43,6 +43,7 @@ import org.ngs.bigx.net.gameplugin.server.BiGXNetServer;
 import org.ngs.bigx.net.gameplugin.server.BiGXNetServerListener;
 
 public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnectionToDeviceEventListener{
+
 	private Hashtable<String, BiGXConnectionToDevice> DeviceConnectionArray;
 	private Hashtable<Integer, String> DeviceConnectionArrayIndex;
 	protected BiGXNetServer bigxServer;
@@ -53,7 +54,7 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 	private Hashtable<Integer, Vector<sensorDataElement>> dataDictionary;
 	private Hashtable<Integer, String> fileNameArray;
 	public static final int MAXSENSORVALUEQUEUESIZE  = 20;
-	
+
 	public static long HRDuration = 0;
 	public static long HRGoal = 900000; // in Milliseconds 
 	public static long HRGoalRangeMin = 140; //TODO: Need to get value from the doctors...
@@ -205,6 +206,7 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 
 	public BiGXMiddlewareCore()
 	{
+
 		this.DeviceConnectionArray = new Hashtable<String, BiGXConnectionToDevice>();
 		this.DeviceConnectionArrayIndex = new Hashtable<Integer, String>();
 		this.bigxServer = new BiGXNetServer();
@@ -268,6 +270,7 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 		this.assignTestVariables();
 		
 		BiGXMiddlewareCore.biGXSuggestedGamePropertiesTimer = new BiGXSuggestedGamePropertiesTimer(this);
+		System.out.println("Middleware core initialized");
 	}
 	
 	/* Store the current device in the list, and returns  */
@@ -569,7 +572,28 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 		
 		this.sendAndLogRecievedMessage(tempDevice, value, DataType, valueType);
 	}
-	
+
+	// DataType of the function is specified to be HeartRate
+	public void sendHeartRate(int value, int valueType){
+		try{
+			double translatedData = bigxDataTranslter.updateRawData(Specification.DataType.HEART,valueType,value);
+			if(translatedData!= Double.MIN_VALUE){
+				byte dataVal[] = {0, (byte)((int)translatedData & 0xFF), (byte)(((int)translatedData >> 8)& 0xFF),0,0,0,0,0,0};
+				BiGXNetPacket packet = new BiGXNetPacket(32, 0,Specification.DataType.HEART,dataVal);
+				this.bigxServer.send(packet);
+				System.out.println("Finished sending a packet to " + this.bigxServer.getPortNumber());
+
+			}
+		}catch (BiGXNetException | BiGXInternalGamePluginExcpetion ee) {
+			// TODO Auto-generated catch block
+			ee.printStackTrace();
+		} catch (Exception ee) {
+			// TODO Auto-generated catch block
+			ee.printStackTrace();
+		}
+	}
+	// NOTE: sending packet through bigxServer -> bigxClient --- the minecraft client
+	// TODO: modify this function, naming and the way the function is programmed is pretty bad
 	public void sendAndLogRecievedMessage(BiGXConnectionToDevice biGXConnectionToDevice, int value, int DataType, int valueType)
 	{
 		try {
@@ -580,6 +604,8 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 			{
 				int intformattranslateData = (int)translatedData;
 				byte datavalue[] = {0, (byte) (intformattranslateData & 0xFF),(byte) ((intformattranslateData & 0xFF00)>>8),0,0,0,0,0,0};
+
+				// NOTE: this is the packet sent to the minecraft client!
 				BiGXNetPacket packet = new BiGXNetPacket(32, (int)biGXConnectionToDevice.getUUID(), DataType, datavalue);
 				this.bigxServer.send(packet);
 			}
