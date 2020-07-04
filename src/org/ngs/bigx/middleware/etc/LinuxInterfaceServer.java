@@ -149,7 +149,7 @@ public class LinuxInterfaceServer extends Thread {
         		(commandarray[2].equals("BLEHR")))
         {
 			System.out.println("[BiGX] Received a command via LOCAL DATA BLRHR Interface");
-			System.out.println("BiGXDevice is: null? "+ (this.BiGXDevice == null));
+//			System.out.println("BiGXDevice is: null? "+ (this.BiGXDevice == null));
         	if(this.BiGXDevice != null)
         	{
         		int value = Integer.parseInt(commandarray[3].trim());
@@ -163,6 +163,7 @@ public class LinuxInterfaceServer extends Thread {
         	}
         	else
         	{
+				System.out.println();
 				this.biGXMiddlewareCore.sendHeartRate(Integer.parseInt(commandarray[3].trim()),0);
         		System.out.println("[BiGX] Exercise device is not connected yet");
         	}

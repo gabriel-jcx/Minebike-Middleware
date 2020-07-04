@@ -19,7 +19,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="'jar/jssc.jar" level="application" />
     <orderEntry type="module-library">
       <library name="firmata4j.jar">
         <CLASSES>
@@ -31,8 +30,6 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="SLF4J-Simple" level="project" />
-    <orderEntry type="library" name="SLF4J-API" level="project" />
     <orderEntry type="module-library">
       <library name="bigxDictionary.jar">
         <CLASSES>
@@ -83,6 +80,24 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/jar/jssc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jar/slf4j-api-1.7.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jar/slf4j-simple-1.7.9.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

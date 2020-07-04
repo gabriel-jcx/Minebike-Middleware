@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="jar/jssc.jar"/>
 	<classpathentry kind="lib" path="jar/firmata4j.jar" sourcepath="/firmata4j"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SLF4J-Simple"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SLF4J-API"/>
+
+    <classpathentry kind="lib" path="jar/jssc.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-simple-1.7.9.jar"/>
+	<classpathentry kind="lib" path="jar/slf4j-api-1.7.9.jar/">
 	<classpathentry kind="lib" path="jar/bigxDictionary.jar"/>
 	<classpathentry kind="lib" path="jar/bigxController.jar"/>
 	<classpathentry kind="lib" path="jar/gson-2.3.1.jar"/>
