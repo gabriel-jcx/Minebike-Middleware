@@ -2,12 +2,14 @@
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="jar://$MODULE_DIR$/jar/firmata4j.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/jar/jssc.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/jar/slf4j-simple-1.7.9.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/jar/slf4j-api-1.7.9.jar!/" />
     <libelement value="jar://$MODULE_DIR$/jar/bigxDictionary.jar!/" />
     <libelement value="jar://$MODULE_DIR$/jar/bigxController.jar!/" />
     <libelement value="jar://$MODULE_DIR$/jar/gson-2.3.1.jar!/" />
     <libelement value="jar://$MODULE_DIR$/jar/jsch-0.1.53.jar!/" />
     <libelement value="jar://$MODULE_DIR$/jar/libBigxDataStream.jar!/" />
-    <conelement value="'jar/jssc.jar" />
     <src_description expected_position="0">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
     </src_description>
@@ -28,6 +30,33 @@
         <SOURCES>
           <root url="file:///firmata4j" />
         </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jssc.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jar/jssc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="slf4j-simple-1.7.9.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jar/slf4j-simple-1.7.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="jar/slf4j-api-1.7.9.jar/">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jar/slf4j-api-1.7.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -75,33 +104,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="jdk" jdkName="1.8.0_212" jdkType="JavaSDK" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jar/jssc.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jar/slf4j-api-1.7.9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/jar/slf4j-simple-1.7.9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="inheritedJdk" />
   </component>
 </module>
