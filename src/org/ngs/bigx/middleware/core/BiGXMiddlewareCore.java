@@ -606,7 +606,7 @@ public class BiGXMiddlewareCore implements BiGXNetServerListener, BiGXConnection
 				byte datavalue[] = {0, (byte) (intformattranslateData & 0xFF),(byte) ((intformattranslateData & 0xFF00)>>8),0,0,0,0,0,0};
 
 				// NOTE: this is the packet sent to the minecraft client!
-				BiGXNetPacket packet = new BiGXNetPacket(32, (int)biGXConnectionToDevice.getUUID(), DataType, datavalue);
+				BiGXNetPacket packet = new BiGXNetPacket(Specification.DataType.HEART, (int)biGXConnectionToDevice.getUUID(), DataType, datavalue);
 				this.bigxServer.send(packet);
 			}
 			
